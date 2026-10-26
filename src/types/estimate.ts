@@ -18,7 +18,7 @@ export interface EstimateResult {
   couponDiscountedPayment: number; // 쿠폰 적용시 1개월간 금액 (원)
   prepaymentAmount: number; // 선납금 원화 금액 (원)
   termMonths: number; // 24~60개월
-  bestAffiliateCount: number; // 비교 금융사 수 (예: 17개사)
+  bestAffiliateCount: number; // 비교 금융사 수
   includedBenefits: string[]; // ['보험·세금 포함', '부가세 포함']
   taxIncentiveAmount: number; // 전기차 보조금 선반영액
   residualValueEstimate: number; // 만기 인수가(잔존가치)

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Database, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   onOpenConsultation: () => void;
-  onOpenAdminPreview: () => void;
-  leadCount: number;
+  onOpenAdminPreview?: () => void;
+  leadCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onOpenConsultation,
-  onOpenAdminPreview,
-  leadCount,
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,17 +60,6 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Header Action Buttons */}
           <div className="header-actions">
-            {/* Admin API Preview Button */}
-            <button
-              type="button"
-              className="btn-admin-pill"
-              onClick={onOpenAdminPreview}
-              title="추후 관리자 페이지 연동용 데이터 대시보드"
-            >
-              <Database size={15} />
-              <span className="admin-btn-label">관리자 API ({leadCount})</span>
-            </button>
-
             {/* Direct CTA Button (Volterra Pill) */}
             <button
               type="button"
@@ -129,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>EV5 특장점</a>
               </li>
               <li>
-                <a href="#reviews" onClick={(e) => handleNavClick(e, 'reviews')}>고객 후기 (2,125건)</a>
+                <a href="#reviews" onClick={(e) => handleNavClick(e, 'reviews')}>고객 후기</a>
               </li>
               <li>
                 <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')}>자주 묻는 질문</a>
@@ -140,25 +127,13 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 type="button"
                 className="btn-primary-dark"
-                style={{ width: '100%', justifyContent: 'center', marginBottom: '10px' }}
+                style={{ width: '100%', justifyContent: 'center' }}
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
               >
                 실시간 최저가 견적받기
-              </button>
-              <button
-                type="button"
-                className="btn-admin-pill"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAdminPreview();
-                }}
-              >
-                <Database size={15} />
-                <span>관리자 API 대시보드 ({leadCount})</span>
               </button>
             </div>
           </div>

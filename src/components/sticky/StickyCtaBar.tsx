@@ -18,10 +18,21 @@ export const StickyCtaBar: React.FC<StickyCtaBarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      // 300px 이상 스크롤되었을 때 바텀 바 노출
-      setVisible(window.scrollY > 350);
+      // 350px 이상 스크롤되었을 때 바텀 바 노출
+      const isPastHero = window.scrollY > 350;
+
+      // 최종 CTA 섹션(#final-cta)이 화면에 충분히 나타나면 스티키 바 숨김
+      const ctaEl = document.getElementById('final-cta');
+      let isCtaInView = false;
+      if (ctaEl) {
+        const rect = ctaEl.getBoundingClientRect();
+        isCtaInView = rect.top < window.innerHeight - 80 && rect.bottom > 80;
+      }
+
+      setVisible(isPastHero && !isCtaInView);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -29,30 +40,28 @@ export const StickyCtaBar: React.FC<StickyCtaBarProps> = ({
 
   return (
     <div className="sticky-bottom-bar">
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 0 }}>
-        <div className="sticky-bar-info">
-          <span style={{ background: '#008b74', color: '#fff', fontSize: '0.72rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px' }}>
-            최저가
-          </span>
-          <span style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600 }}>
-            {selectedTrimName}
-          </span>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+      <div className="sticky-bar-container">
+        <div className="sticky-bar-left">
+          <div className="sticky-bar-meta">
+            <span className="sticky-bar-badge">최저가</span>
+            <span className="sticky-bar-trim">{selectedTrimName}</span>
+          </div>
+          <div className="sticky-bar-price-wrap">
             <span className="sticky-bar-price">
               {formatCurrency(estimateResult.monthlyPayment)}
             </span>
-            <span className="sticky-bar-unit">원 / 월</span>
+            <span className="sticky-bar-unit">원/월</span>
           </div>
         </div>
 
         <button
           type="button"
-          className="btn-primary-dark"
-          style={{ padding: '10px 24px', fontSize: '0.92rem' }}
+          className="sticky-bar-cta-btn"
           onClick={onOpenConsultation}
+          aria-label="견적 분석 받기"
         >
           <span>견적 분석 받기</span>
-          <ArrowRight size={16} />
+          <ArrowRight size={15} />
         </button>
       </div>
     </div>

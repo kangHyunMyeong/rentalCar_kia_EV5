@@ -11,6 +11,7 @@ import { EstimateCalculator } from './components/calculator/EstimateCalculator';
 import { EV5Features } from './components/features/EV5Features';
 import { ReviewSection } from './components/reviews/ReviewSection';
 import { FaqSection } from './components/faq/FaqSection';
+import { FinalCtaSection } from './components/cta/FinalCtaSection';
 import { Footer } from './components/common/Footer';
 import { StickyCtaBar } from './components/sticky/StickyCtaBar';
 
@@ -73,7 +74,13 @@ export const App: React.FC = () => {
   const scrollToCalculator = () => {
     const el = document.getElementById('calculator');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -114,6 +121,12 @@ export const App: React.FC = () => {
 
       {/* 7. FAQ Accordion (Image 4 Matching) */}
       <FaqSection />
+
+      {/* NEW: Final Consultation CTA Section (Cinematic EV5 with kia_ev5_6.jpg) */}
+      <FinalCtaSection
+        onOpenConsultation={() => setIsConsultationModalOpen(true)}
+        onScrollToCalculator={scrollToCalculator}
+      />
 
       {/* 8. Footer */}
       <Footer />

@@ -3,7 +3,7 @@ import { EstimateOptions, EstimateResult } from '../types/estimate';
 
 /**
  * 실시간 견적 산출 서비스
- * 실제 렌터카 17개사(롯데, SK, 하나, 현대캐피탈, KB캐피탈 등) 비교 요율 알고리즘 모방
+ * 실제 주요 렌터카사(롯데, SK, 하나, 현대캐피탈, KB캐피탈 등) 비교 요율 알고리즘 모방
  */
 export function calculateEstimate(options: EstimateOptions): EstimateResult {
   const trim = EV5_TRIMS.find((t) => t.id === options.trimId) || EV5_TRIMS[0];

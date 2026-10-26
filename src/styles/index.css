@@ -130,6 +130,14 @@ a {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .container-narrow {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   .section-padding {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -395,8 +403,8 @@ a {
 
 @media (max-width: 768px) {
   .hero-container-inner {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -703,50 +711,55 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 16px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.94);
+  gap: 6px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--border-radius-pill);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mobile-color-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: nowrap; /* 9개 색상이 한 줄에 깔끔하게 정렬되도록 nowrap 고정 */
   justify-content: center;
 }
 
 .mobile-color-btn {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 2px solid #fff;
   outline: 1px solid #d1d5db;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .mobile-color-btn.active {
-  transform: scale(1.24);
+  transform: scale(1.22);
   outline: 2px solid var(--accent-black);
-  outline-offset: 2px;
+  outline-offset: 1px;
 }
 
 .mobile-color-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #374151;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -852,26 +865,45 @@ a {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .hero-spec-strip {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 16px 14px;
-    gap: 14px 10px;
+    grid-template-columns: 1fr; /* 모바일 1단 레이아웃 */
+    padding: 16px 18px;
+    gap: 12px;
+    border-radius: 20px;
     min-height: auto;
   }
   .spec-strip-item {
-    gap: 10px;
+    gap: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f3f5;
+  }
+  .spec-strip-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
   }
   .spec-icon-box {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  .spec-icon-box svg {
+    width: 20px;
+    height: 20px;
+  }
+  .spec-strip-meta {
+    gap: 2px;
   }
   .spec-strip-value {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1.2;
   }
   .spec-strip-label {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.3;
+    white-space: nowrap;
   }
 }
 
@@ -968,7 +1000,7 @@ a {
 /* Card Header: EV5 Title & Top Mini Car Thumbnail */
 .calc-header-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -977,6 +1009,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  text-align: right;
 }
 
 .calc-model-name {
@@ -984,6 +1017,7 @@ a {
   font-weight: 900;
   color: #0c0d0e;
   letter-spacing: -0.03em;
+  text-align: right;
 }
 
 .btn-car-info {
@@ -1055,10 +1089,35 @@ a {
   background: #ffffff;
   border: 1px solid #edf0f2;
   border-radius: 20px;
-  padding: 20px 20px;
+  padding: 22px 20px 20px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+
+.price-included-info {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f3f5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.price-included-line {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4b5563;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.price-included-sub {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  word-break: keep-all;
 }
 
 .price-sub-hint {
@@ -1640,6 +1699,7 @@ a {
   color: #0c0d0e;
   letter-spacing: -0.025em;
   margin-bottom: 36px;
+  text-align: center;
 }
 
 .faq-accordion-list {
@@ -2136,58 +2196,389 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid #e5e7eb;
-  padding: 14px 24px;
+  padding: 12px 24px;
   z-index: 900;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.07);
   animation: slideUp 0.3s ease-out;
 }
 
-.sticky-bar-info {
+.sticky-bar-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.sticky-bar-label {
-  font-size: 0.85rem;
-  color: #6b7280;
+.sticky-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sticky-bar-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sticky-bar-badge {
+  background: #008b74;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.sticky-bar-trim {
+  font-size: 0.88rem;
+  color: #4b5563;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-bar-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .sticky-bar-price {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: var(--accent-black);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.sticky-bar-unit {
+  font-size: 0.82rem;
+  color: #4b5563;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sticky-bar-cta-btn {
+  background: var(--accent-black);
+  color: #ffffff;
+  border-radius: var(--border-radius-pill);
+  padding: 11px 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.sticky-bar-cta-btn:hover {
+  background: #23272e;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
 }
 
 @media (max-width: 640px) {
   .sticky-bottom-bar {
-    padding: 10px 16px;
+    padding: 9px 16px;
   }
-  .sticky-bar-info {
+  .sticky-bar-container {
+    gap: 10px;
+  }
+  .sticky-bar-left {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
   }
-  .sticky-bar-price {
-    font-size: 1.25rem;
+  .sticky-bar-meta {
+    gap: 6px;
+    max-width: 100%;
   }
-  .sticky-bottom-bar .btn-primary-dark {
-    padding: 8px 16px;
-    font-size: 0.85rem;
+  .sticky-bar-trim {
+    max-width: 140px;
+    font-size: 0.8rem;
+  }
+  .sticky-bar-price {
+    font-size: 1.15rem;
+  }
+  .sticky-bar-unit {
+    font-size: 0.78rem;
+  }
+  .sticky-bar-cta-btn {
+    padding: 10px 16px;
+    font-size: 0.84rem;
+    gap: 5px;
   }
 }
 
-.sticky-bar-unit {
-  font-size: 0.9rem;
-  color: #4b5563;
+@media (max-width: 380px) {
+  .sticky-bottom-bar {
+    padding: 8px 10px;
+  }
+  .sticky-bar-container {
+    gap: 6px;
+  }
+  .sticky-bar-trim {
+    max-width: 110px;
+    font-size: 0.75rem;
+  }
+  .sticky-bar-price {
+    font-size: 1.08rem;
+  }
+  .sticky-bar-unit {
+    font-size: 0.74rem;
+  }
+  .sticky-bar-cta-btn {
+    padding: 9px 12px;
+    font-size: 0.8rem;
+    gap: 4px;
+  }
+}
+
+/* ==========================================================================
+   Final Consultation CTA Section (Premium Cinematic EV5 with kia_ev5_6.jpg)
+   ========================================================================== */
+.final-cta-section {
+  background-color: #ffffff;
+  padding: 0 0 100px 0;
+  position: relative;
+}
+
+.final-cta-outer-container {
+  width: 100%;
+  max-width: 1440px; /* 후기 container 넓이와 동일하게 1440px 적용 */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.final-cta-panel {
+  position: relative;
+  background-color: #0c0d0e; /* Fallback dark background */
+  background-size: cover;
+  background-position: right 18% center;
+  background-repeat: no-repeat;
+  border-radius: 26px;
+  min-height: 480px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+/* Left-to-right black gradient overlay:
+   Left (0~30%): black ~88-92%
+   Center (30~60%): black ~55-65%
+   Right (60~100%): black ~20-25% */
+.final-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 13, 14, 0.92) 0%,
+    rgba(12, 13, 14, 0.88) 32%,
+    rgba(12, 13, 14, 0.58) 60%,
+    rgba(12, 13, 14, 0.22) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
+  padding: 64px 0 64px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: #00d2ad; /* Refined luminous mint/teal */
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.final-cta-badge-icon {
+  color: #00d2ad;
+}
+
+.final-cta-title {
+  font-size: clamp(2.1rem, 2.8vw, 2.65rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  word-break: keep-all;
+}
+
+.final-cta-desc {
+  font-size: 1.02rem;
+  color: #D9DEE4;
+  line-height: 1.65;
+  max-width: 480px;
+  margin-bottom: 34px;
+  word-break: keep-all;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.final-cta-btn-primary {
+  background: #ffffff;
+  color: #0c0d0e;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: var(--border-radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.final-cta-btn-primary:hover {
+  background: #f1f3f5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+.final-cta-btn-primary:hover .btn-arrow-icon {
+  transform: translateX(3px);
+}
+
+.btn-arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.final-cta-btn-secondary {
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 0.94rem;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.4);
+  transition: all var(--transition-fast);
+}
+
+.final-cta-btn-secondary:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .final-cta-section {
+    padding: 0 0 70px 0;
+  }
+  .final-cta-panel {
+    min-height: 460px;
+    background-position: right 10% center;
+  }
+  .final-cta-content {
+    padding: 50px 0 50px 48px;
+    max-width: 490px;
+  }
+  .final-cta-title {
+    font-size: clamp(1.9rem, 2.6vw, 2.3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .final-cta-section {
+    padding: 0 0 50px 0;
+  }
+  .final-cta-outer-container {
+    padding: 0 16px;
+  }
+  .final-cta-panel {
+    min-height: 480px;
+    border-radius: 20px;
+    background-position: center bottom;
+  }
+  .final-cta-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 13, 14, 0.90) 0%,
+      rgba(12, 13, 14, 0.82) 55%,
+      rgba(12, 13, 14, 0.65) 100%
+    );
+  }
+  .final-cta-content {
+    padding: 44px 24px 40px;
+    max-width: 100%;
+    min-height: 480px;
+    text-align: left;
+  }
+  .final-cta-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .final-cta-desc {
+    font-size: 0.92rem;
+    margin-bottom: 26px;
+  }
+  .final-cta-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .final-cta-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .final-cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    border-bottom: none;
+    padding: 8px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final-cta-btn-primary,
+  .final-cta-btn-primary:hover,
+  .btn-arrow-icon {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Footer (Volterra Minimal Dark/Clean) */

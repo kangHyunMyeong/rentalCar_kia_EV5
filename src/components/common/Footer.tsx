@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           <div>
             <div className="footer-brand-title">KIA EV5 DIRECT</div>
             <p style={{ color: '#9ca3af', maxWidth: '420px', lineHeight: 1.6, marginBottom: '16px' }}>
-              대한민국 17개 전업 렌터카사의 실시간 다이렉트 최저가 요율을 비교 분석하여 고객님께 가장 유리한 맞춤형 신차 장기렌트 플랜을 제공합니다.
+              대한민국 주요 전업 렌터카사의 실시간 다이렉트 최저가 요율을 비교 분석하여 고객님께 가장 유리한 맞춤형 신차 장기렌트 플랜을 제공합니다.
             </p>
             <div style={{ display: 'flex', gap: '16px', color: '#6b7280', fontSize: '0.8rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

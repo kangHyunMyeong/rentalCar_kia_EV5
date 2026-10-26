@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MoveHorizontal, Layers, Monitor, Plug, ChevronRight, Check } from 'lucide-react';
+import { MoveHorizontal, Layers, Monitor, Plug, Check } from 'lucide-react';
 import { CarColor, CarTrim } from '../../types/car';
 import { EV5_COLORS } from '../../data/cars';
 
@@ -8,14 +8,13 @@ interface HeroSectionProps {
   onSelectColor: (color: CarColor) => void;
   selectedTrim?: CarTrim;
   onOpenConsultation: () => void;
-  onScrollToCalculator: () => void;
+  onScrollToCalculator?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   selectedColor,
   onSelectColor,
   onOpenConsultation,
-  onScrollToCalculator,
 }) => {
   const [isChanging, setIsChanging] = useState(false);
   const [hoveredColor, setHoveredColor] = useState<CarColor | null>(null);
@@ -27,15 +26,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       onSelectColor(color);
       setIsChanging(false);
     }, 150);
-  };
-
-  const handleScrollToMore = () => {
-    const el = document.getElementById('features') || document.getElementById('calculator');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      onScrollToCalculator();
-    }
   };
 
   const activeOrHoveredColor = hoveredColor || selectedColor;
@@ -69,15 +59,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <span>EV5 장기렌트 견적받기</span>
                 <span>→</span>
-              </button>
-
-              <button
-                type="button"
-                className="btn-outline-text"
-                onClick={handleScrollToMore}
-              >
-                <span>EV5 자세히 알아보기</span>
-                <ChevronRight size={18} />
               </button>
             </div>
           </div>

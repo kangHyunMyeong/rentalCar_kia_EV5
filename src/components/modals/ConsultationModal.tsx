@@ -82,7 +82,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             </h3>
             <p style={{ color: '#4b5563', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
               <strong>{name}</strong> 고객님께 10분 이내로 전담 버디가 배정되어<br />
-              17개사 실시간 최저가 상세 비교 리포트를 전송해 드리겠습니다.
+              실시간 최저가 상세 비교 리포트를 전송해 드리겠습니다.
             </p>
             <div
               style={{
@@ -113,7 +113,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <Sparkles size={18} color="#0c0d0e" />
               <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0c0d0e' }}>
-                17개사 다이렉트 최저가 특판
+                실시간 다이렉트 최저가 특판
               </span>
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#111', marginBottom: '6px' }}>
