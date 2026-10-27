@@ -1069,7 +1069,8 @@ a {
 .calc-trim-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
 }
 
 .calc-trim-tag {
@@ -1082,6 +1083,12 @@ a {
   font-weight: 600;
   font-size: 0.95rem;
   color: #1a1a1a;
+}
+
+.calc-trim-price-tag {
+  font-size: 0.86rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* Lowest Price Box (Image 2) */

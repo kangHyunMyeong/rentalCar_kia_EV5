@@ -34,7 +34,7 @@ export const TrimDetailModal: React.FC<TrimDetailModalProps> = ({
           기아 EV5 공식 트림 및 사양 안내
         </h3>
         <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '24px' }}>
-          배터리 용량 및 구동 방식(2WD/AWD)에 따른 5가지 세부 트림 정보를 비교해 보세요.
+          배터리 용량 및 상품성에 따른 6가지 공식 세부 트림 정보를 비교해 보세요.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

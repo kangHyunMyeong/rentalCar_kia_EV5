@@ -102,6 +102,9 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
               <div className="calc-trim-left">
                 <span className="calc-trim-tag">트림</span>
                 <span className="calc-trim-text">{selectedTrim.name}</span>
+                <span className="calc-trim-price-tag" style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 500 }}>
+                  (차량가 {formatCurrency(selectedTrim.basePrice)}원)
+                </span>
               </div>
               <ChevronDown
                 size={18}
@@ -153,9 +156,23 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                       }}
                     >
                       <div>
-                        <div>{trim.name}</div>
-                        <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                          차량가 {formatCurrency(trim.basePrice)}원 · {trim.badge}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span>{trim.name}</span>
+                          <span
+                            style={{
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              color: '#008b74',
+                              background: '#e6f7f4',
+                              padding: '2px 8px',
+                              borderRadius: '4px',
+                            }}
+                          >
+                            차량가 {formatCurrency(trim.basePrice)}원
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '2px' }}>
+                          {trim.badge} · {trim.spec.maxRange} · {trim.wheelSize}
                         </div>
                       </div>
                       {isSelected && <Check size={16} color="#008b74" />}
