@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="container footer-container">
         {/* Top Header Row: Brand Logo + Terms / Privacy Links */}
         <div className="footer-header-row">
-          <div className="footer-brand-name">핏카</div>
+          <div className="footer-brand-name">핏카컴퍼니</div>
           <div className="footer-policy-links">
             <button
               type="button"
@@ -36,23 +36,28 @@ export const Footer: React.FC = () => {
         <div className="footer-info-row">
           <div className="footer-company-meta">
             <span className="footer-meta-item">
+              <span className="footer-meta-label">상호명</span>
+              <span className="footer-meta-val">핏카컴퍼니</span>
+            </span>
+            <span className="footer-meta-sep">·</span>
+            <span className="footer-meta-item">
               <span className="footer-meta-label">대표자</span>
-              <span className="footer-meta-val">홍길동</span>
+              <span className="footer-meta-val">김민철</span>
             </span>
             <span className="footer-meta-sep">·</span>
             <span className="footer-meta-item">
               <span className="footer-meta-label">사업자등록번호</span>
-              <span className="footer-meta-val">123-45-67890</span>
+              <span className="footer-meta-val">578-36-01253</span>
             </span>
             <span className="footer-meta-sep">·</span>
             <span className="footer-meta-item">
               <span className="footer-meta-label">주소</span>
-              <span className="footer-meta-val">서울특별시 강남구 테헤란로 123</span>
+              <span className="footer-meta-val">인천 서구 파랑로 495 에이스하이테크시티 1동 1004호</span>
             </span>
           </div>
 
           <div className="footer-copyright">
-            © 핏카. All rights reserved.
+            © FitCar Company. All rights reserved.
           </div>
         </div>
       </div>
@@ -82,7 +87,7 @@ export const Footer: React.FC = () => {
                 <div style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   <p>
                     <strong>1. 개인정보의 수집 및 이용 목적</strong><br />
-                    핏카는 기아 EV5 신차 장기렌트 다이렉트 견적 산출, 최적 금융 플랜 비교 분석, 전문 상담 매니저 배정 및 고객 맞춤형 혜택 안내를 목적으로 개인정보를 수집·이용합니다.
+                    핏카컴퍼니는 기아 EV5 신차 장기렌트 다이렉트 견적 산출, 최적 금융 플랜 비교 분석, 전문 상담 매니저 배정 및 고객 맞춤형 혜택 안내를 목적으로 개인정보를 수집·이용합니다.
                   </p>
                   <p>
                     <strong>2. 수집하는 개인정보 항목</strong><br />
@@ -106,7 +111,7 @@ export const Footer: React.FC = () => {
                 <div style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   <p>
                     <strong>제1조 (목적)</strong><br />
-                    본 약관은 핏카가 제공하는 기아 EV5 실시간 장기렌트 비교 견적 서비스의 이용 조건 및 절차에 관한 제반 사항을 규정함을 목적으로 합니다.
+                    본 약관은 핏카컴퍼니가 제공하는 기아 EV5 실시간 장기렌트 비교 견적 서비스의 이용 조건 및 절차에 관한 제반 사항을 규정함을 목적으로 합니다.
                   </p>
                   <p>
                     <strong>제2조 (견적 및 계약 안내)</strong><br />
@@ -114,7 +119,7 @@ export const Footer: React.FC = () => {
                   </p>
                   <p>
                     <strong>제3조 (회사의 의무)</strong><br />
-                    핏카는 고객님의 소중한 정보를 안전하게 보호하며, 신속하고 정확한 견적 산출 및 친절한 상담 서비스를 제공하기 위해 최선을 다합니다.
+                    핏카컴퍼니는 고객님의 소중한 정보를 안전하게 보호하며, 신속하고 정확한 견적 산출 및 친절한 상담 서비스를 제공하기 위해 최선을 다합니다.
                   </p>
                 </div>
               </div>

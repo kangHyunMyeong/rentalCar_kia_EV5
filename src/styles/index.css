@@ -969,18 +969,38 @@ a {
 }
 
 @media (max-width: 480px) {
+  .brand-title {
+    font-size: 0.98rem;
+  }
   .calculator-card {
     padding: 18px 12px;
     border-radius: 18px;
   }
   .calc-option-btn {
-    padding: 10px 2px;
+    padding: 6px 2px;
+    min-height: 50px;
+    gap: 1px;
+    white-space: nowrap;
+  }
+  .calc-opt-main {
     font-size: 0.86rem;
   }
-  .badge-top-tag {
+  .calc-opt-sub {
+    font-size: 0.62rem;
+    letter-spacing: -0.04em;
+  }
+  .calc-btn-grid-5 {
+    gap: 4px;
+  }
+  .calc-btn-grid-5 .calc-option-btn {
+    padding: 6px 1px;
+  }
+  .calc-btn-grid-5 .calc-opt-main {
+    font-size: 0.8rem;
+  }
+  .calc-btn-grid-5 .calc-opt-sub {
     font-size: 0.58rem;
-    padding: 1px 4px;
-    top: -8px;
+    letter-spacing: -0.05em;
   }
   .calc-header-thumb {
     width: 100px;
@@ -1252,46 +1272,70 @@ a {
   gap: 10px;
 }
 
+/* Selection Grid (4-Column Buttons - 선납금 0%, 10%, 20%, 30%) */
+.calc-btn-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Selection Grid (5-Column Buttons - 주행거리 1만, 1.5만, 2만, 3만, 무제한) */
+.calc-btn-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
 .calc-option-btn {
   position: relative;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 14px 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #374151;
+  padding: 8px 4px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
   text-align: center;
+  white-space: nowrap;
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .calc-option-btn:hover {
-  background: #f9fafb;
+  background: #ffffff;
   border-color: #cbd5e1;
 }
 
 .calc-option-btn.selected {
   border-color: #0c0d0e;
-  background: #f8fafc;
-  color: #0c0d0e;
-  font-weight: 800;
+  background: #ffffff;
   box-shadow: 0 0 0 1.5px #0c0d0e;
 }
 
-/* Badge on top of button (최대, 최다) */
-.badge-top-tag {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0c0d0e;
-  color: #ffffff;
-  font-size: 0.65rem;
+.calc-opt-main {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.calc-option-btn.selected .calc-opt-main {
+  color: #0c0d0e;
   font-weight: 800;
-  padding: 1px 7px;
-  border-radius: var(--border-radius-pill);
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.calc-opt-sub {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.calc-option-btn.selected .calc-opt-sub {
+  color: #1e293b;
+  font-weight: 600;
 }
 
 /* Product Display (신차 장기렌트 전용) */
@@ -2640,7 +2684,7 @@ a {
   }
 }
 
-/* Footer (Volterra Minimal Dark/Clean with 핏카) */
+/* Footer (Volterra Minimal Dark/Clean with 핏카컴퍼니) */
 .site-footer {
   background: #080d16;
   color: #94a3b8;

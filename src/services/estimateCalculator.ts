@@ -30,6 +30,7 @@ export function calculateEstimate(options: EstimateOptions): EstimateResult {
     15000: 0, // 기준 1.5만km
     20000: 18000,
     30000: 45000,
+    [-1]: 75000, // 주행거리 무제한
   };
   const mileageDelta = mileageDeltas[options.mileageKm] ?? 0;
 

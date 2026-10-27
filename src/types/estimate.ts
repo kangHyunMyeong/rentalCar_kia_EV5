@@ -1,6 +1,6 @@
-export type RentalTermYears = 2 | 3 | 4 | 5; // 24, 36, 48, 60개월
+export type RentalTermYears = 3 | 4 | 5; // 36, 48, 60개월
 export type PrepaymentRate = 0 | 10 | 20 | 30; // 0%, 10%, 20%, 30%
-export type AnnualMileageKm = 10000 | 15000 | 20000 | 30000;
+export type AnnualMileageKm = 10000 | 15000 | 20000 | 30000 | -1; // 1만, 1.5만, 2만, 3만, 무제한(-1)
 export type ProductType = 'rent'; // 신차 장기렌터카 전용
 
 export interface EstimateOptions {

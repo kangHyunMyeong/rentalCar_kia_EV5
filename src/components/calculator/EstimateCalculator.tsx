@@ -186,7 +186,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             )}
           </div>
 
-          {/* 1. 선납금 (10%, 20%, 30%) */}
+          {/* 1. 선납금 (0%, 10%, 20%, 30%) */}
           <div className="calc-field-group">
             <div className="calc-field-header">
               <span className="calc-field-label">
@@ -198,7 +198,9 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                 />
               </span>
               <span className="calc-field-value-preview">
-                {`${Math.round(estimateResult.prepaymentAmount / 10000)}만원`}
+                {estimateOptions.prepaymentRate === 0
+                  ? '0원'
+                  : `${Math.round(estimateResult.prepaymentAmount / 10000)}만원`}
               </span>
             </div>
 
@@ -208,25 +210,30 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
               </div>
             )}
 
-            <div className="calc-btn-grid">
-              {([10, 20, 30] as PrepaymentRate[]).map((rate) => {
+            <div className="calc-btn-grid calc-btn-grid-4">
+              {([
+                { rate: 0, sub: undefined },
+                { rate: 10, sub: '균형형' },
+                { rate: 20, sub: undefined },
+                { rate: 30, sub: undefined },
+              ] as const).map(({ rate, sub }) => {
                 const isSelected = estimateOptions.prepaymentRate === rate;
                 return (
                   <button
                     key={rate}
                     type="button"
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
-                    onClick={() => onUpdateOptions({ prepaymentRate: rate })}
+                    onClick={() => onUpdateOptions({ prepaymentRate: rate as PrepaymentRate })}
                   >
-                    {rate === 10 && <span className="badge-top-tag">최다</span>}
-                    <span>{rate}%</span>
+                    <span className="calc-opt-main">{rate}%</span>
+                    {sub && <span className="calc-opt-sub">{sub}</span>}
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* 2. 1년에 주행할 거리 (1만, 2만, 3만) */}
+          {/* 2. 1년에 주행할 거리 (1만, 1.5만, 2만, 3만, 무제한) */}
           <div className="calc-field-group">
             <div className="calc-field-header">
               <span className="calc-field-label">
@@ -237,41 +244,44 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   onClick={() => toggleTooltip('mileage')}
                 />
               </span>
-              <span className="calc-field-value-preview">km</span>
+              <span className="calc-field-value-preview">
+                {estimateOptions.mileageKm === -1
+                  ? '무제한'
+                  : `${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`}
+              </span>
             </div>
 
             {activeTooltip === 'mileage' && (
               <div style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '8px' }}>
-                예상 주행거리에 맞춰 선택하세요. 2만km를 초과할 가능성이 있다면 2만km 이상을 추천해 드립니다.
+                예상 주행거리에 맞춰 선택하세요. 2만km를 초과할 가능성이 있다면 2만km 이상 또는 무제한을 추천해 드립니다.
               </div>
             )}
 
-            <div className="calc-btn-grid">
-              {([10000, 20000, 30000] as AnnualMileageKm[]).map((mileage) => {
+            <div className="calc-btn-grid calc-btn-grid-5">
+              {([
+                { mileage: 10000, label: '1만', sub: undefined },
+                { mileage: 15000, label: '1.5만', sub: undefined },
+                { mileage: 20000, label: '2만', sub: '최다' },
+                { mileage: 30000, label: '3만', sub: undefined },
+                { mileage: -1, label: '무제한', sub: undefined },
+              ] as const).map(({ mileage, label, sub }) => {
                 const isSelected = estimateOptions.mileageKm === mileage;
-                const labelText =
-                  mileage === 10000
-                    ? '1만'
-                    : mileage === 20000
-                    ? '2만'
-                    : '3만';
-
                 return (
                   <button
                     key={mileage}
                     type="button"
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
-                    onClick={() => onUpdateOptions({ mileageKm: mileage })}
+                    onClick={() => onUpdateOptions({ mileageKm: mileage as AnnualMileageKm })}
                   >
-                    {mileage === 20000 && <span className="badge-top-tag">최다</span>}
-                    <span>{labelText}</span>
+                    <span className="calc-opt-main">{label}</span>
+                    {sub && <span className="calc-opt-sub">{sub}</span>}
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* 3. 계약기간 (2년, 3년, 5년) */}
+          {/* 3. 계약기간 (3년, 4년, 5년) */}
           <div className="calc-field-group">
             <div className="calc-field-header">
               <span className="calc-field-label">
@@ -291,17 +301,21 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             )}
 
             <div className="calc-btn-grid">
-              {([2, 3, 5] as RentalTermYears[]).map((term) => {
+              {([
+                { term: 3, sub: undefined },
+                { term: 4, sub: undefined },
+                { term: 5, sub: '장기 이용' },
+              ] as const).map(({ term, sub }) => {
                 const isSelected = estimateOptions.termYears === term;
                 return (
                   <button
                     key={term}
                     type="button"
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
-                    onClick={() => onUpdateOptions({ termYears: term })}
+                    onClick={() => onUpdateOptions({ termYears: term as RentalTermYears })}
                   >
-                    {term === 5 && <span className="badge-top-tag">최대</span>}
-                    <span>{term}년</span>
+                    <span className="calc-opt-main">{term}년</span>
+                    {sub && <span className="calc-opt-sub">{sub}</span>}
                   </button>
                 );
               })}

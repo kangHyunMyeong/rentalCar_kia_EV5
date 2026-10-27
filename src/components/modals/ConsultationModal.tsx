@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, Sparkles } from 'lucide-react';
+import { X, CheckCircle } from 'lucide-react';
 import { CarColor, CarTrim } from '../../types/car';
 import { EstimateOptions, EstimateResult } from '../../types/estimate';
 import { LeadService } from '../../services/leadService';
@@ -96,7 +96,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               }}
             >
               <div><strong>선택 차량:</strong> {selectedTrim.name} ({selectedColor.nameKo})</div>
-              <div><strong>계약 조건:</strong> {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 연 {estimateOptions.mileageKm / 10000}만km</div>
+              <div><strong>계약 조건:</strong> {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · {estimateOptions.mileageKm === -1 ? '주행거리 무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`}</div>
               <div><strong>예상 월 납입금:</strong> <span style={{ color: '#008b74', fontWeight: 800 }}>{formatCurrency(estimateResult.monthlyPayment)}원/월</span></div>
             </div>
             <button
@@ -110,13 +110,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
         ) : (
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-              <Sparkles size={18} color="#0c0d0e" />
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0c0d0e' }}>
-                실시간 다이렉트 최저가 특판
-              </span>
-            </div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#111', marginBottom: '6px' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#111', marginBottom: '6px', paddingRight: '36px' }}>
               EV5 정밀 견적 분석 받아보기
             </h3>
             <p style={{ fontSize: '0.88rem', color: '#6b7280', marginBottom: '20px' }}>
@@ -139,7 +133,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div>
                 <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{selectedTrim.name}</div>
                 <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 신차 장기렌트
+                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · {estimateOptions.mileageKm === -1 ? '무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`} · 신차 장기렌트
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>
