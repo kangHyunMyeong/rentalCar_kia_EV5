@@ -33,17 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
-        <div className="container header-inner">
-          {/* Brand Logo - Volterra Minimalist Aesthetic */}
+        <div className="container header-container header-inner">
+          {/* Brand Logo - Text Type */}
           <div className="brand-wrapper">
-            <a href="#" className="brand-wrapper">
-              <div className="brand-logo-badge" title="Kia EV5 Direct">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
-              </div>
-              <span className="brand-title">KIA EV5</span>
+            <a href="#" className="brand-logo-link" title="핏카 - 기아 EV5">
+              <span className="brand-title">핏카 - 기아 EV5</span>
             </a>
           </div>
 
@@ -94,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mobile-nav-header">
-              <span className="brand-title">KIA EV5</span>
+              <span className="brand-title">핏카 - 기아 EV5</span>
               <button
                 type="button"
                 className="modal-close-btn"

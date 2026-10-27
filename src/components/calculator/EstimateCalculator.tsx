@@ -83,10 +83,13 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             {/* Included Expenses & Conditions Subtext */}
             <div className="price-included-info">
               <div className="price-included-line">
-                취등록세 · 공채 · 자동차세 · 종합보험료 100% 전액 포함
+                취등록세 · 공채 · 자동차세 · 종합보험료 별도
               </div>
               <div className="price-included-sub">
-                신용점수 영향 없음(DSR 규제 미적용) · 만기 시 인수/반납 자유 선택
+                DSR 규제 미적용 · 만기 시 인수/반납 선택 가능
+              </div>
+              <div className="price-included-notice">
+                ※ 일반적인 신차 장기렌트 기준이며, 신용심사 및 계약 조건에 따라 이용 가능 여부가 달라집니다. 일부 상품은 만기 선택이 제한될 수 있습니다.
               </div>
             </div>
           </div>

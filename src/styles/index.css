@@ -166,6 +166,11 @@ a {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
+.site-header .container,
+.header-container {
+  max-width: 1440px; /* 푸터 위 CTA 영역(1440px)과 동일 너비 */
+}
+
 .header-inner {
   height: 100%;
   display: flex;
@@ -176,31 +181,20 @@ a {
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.brand-logo-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #000;
-  display: flex;
+.brand-logo-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: transform var(--transition-fast);
-}
-
-.brand-logo-badge:hover {
-  transform: scale(1.05);
+  text-decoration: none;
 }
 
 .brand-title {
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -1121,10 +1115,19 @@ a {
 }
 
 .price-included-sub {
-  font-size: 0.74rem;
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.price-included-notice {
+  font-size: 0.70rem;
   color: #94a3b8;
   line-height: 1.45;
   word-break: keep-all;
+  margin-top: 2px;
 }
 
 .price-sub-hint {
@@ -1457,7 +1460,6 @@ a {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 4px 4px 18px 4px;
-  scroll-behavior: smooth;
 }
 
 .reviews-slider-track::-webkit-scrollbar {
@@ -1488,12 +1490,30 @@ a {
 
 /* Card Photo Media */
 .review-card-media {
+  position: relative;
   width: 100%;
   height: 190px;
   border-radius: 14px;
   overflow: hidden;
   background: #f1f5f9;
   margin-bottom: 14px;
+}
+
+.review-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(12, 13, 14, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: -0.01em;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .review-card-img {
@@ -1601,6 +1621,38 @@ a {
   opacity: 0.35;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.reviews-indicator-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviews-counter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.reviews-counter-current {
+  color: #0c0d0e;
+}
+
+.reviews-counter-sep {
+  color: #94a3b8;
+  font-size: 0.72rem;
+}
+
+.reviews-counter-total {
+  color: #64748b;
 }
 
 .reviews-pagination-dots {
@@ -2588,39 +2640,144 @@ a {
   }
 }
 
-/* Footer (Volterra Minimal Dark/Clean) */
+/* Footer (Volterra Minimal Dark/Clean with 핏카) */
 .site-footer {
-  background: #0f1216;
-  color: #9ca3af;
-  padding: 60px 0 30px;
+  background: #080d16;
+  color: #94a3b8;
+  padding: 48px 0 40px;
   font-size: 0.88rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 32px;
-  margin-bottom: 40px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #1f2937;
+.site-footer .container,
+.footer-container {
+  max-width: 1440px; /* 푸터 위 CTA 영역(1440px)과 동일 너비 */
 }
 
-.footer-brand-title {
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  margin-bottom: 8px;
-}
-
-.footer-bottom {
+.footer-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  font-size: 0.8rem;
-  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.footer-brand-name {
+  color: #ffffff;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.footer-policy-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-policy-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #60a5fa;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.footer-policy-link:hover {
+  color: #93c5fd;
+}
+
+.footer-link-divider {
+  color: #334155;
+  font-size: 0.75rem;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.footer-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.84rem;
+  color: #94a3b8;
+}
+
+.footer-company-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  line-height: 1.6;
+}
+
+.footer-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-meta-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.footer-meta-val {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.footer-meta-sep {
+  color: #334155;
+  font-size: 0.75rem;
+}
+
+.footer-copyright {
+  color: #64748b;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 36px 0 92px; /* 하단 고정 스티키 바 공간 확보 */
+  }
+
+  .footer-header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-company-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .footer-meta-sep {
+    display: none;
+  }
+
+  .footer-copyright {
+    margin-top: 4px;
+  }
 }
