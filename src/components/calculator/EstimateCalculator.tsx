@@ -6,6 +6,7 @@ import {
   EstimateResult,
   RentalTermYears,
   PrepaymentRate,
+  DepositRate,
   AnnualMileageKm,
 } from '../../types/estimate';
 import { EV5_TRIMS } from '../../data/cars';
@@ -71,6 +72,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
 
           {/* Monthly Price Card */}
           <div className="calc-price-card">
+            <div className="price-top-caption">차량가 기준 월 예상 이용료</div>
             <div className="price-main-row">
               <div className="fintech-icon">₩</div>
               <div className="price-digits">
@@ -82,14 +84,11 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
 
             {/* Included Expenses & Conditions Subtext */}
             <div className="price-included-info">
-              <div className="price-included-line">
-                취등록세 · 공채 · 자동차세 · 종합보험료 별도
-              </div>
               <div className="price-included-sub">
                 DSR 규제 미적용 · 만기 시 인수/반납 선택 가능
               </div>
               <div className="price-included-notice">
-                ※ 일반적인 신차 장기렌트 기준이며, 신용심사 및 계약 조건에 따라 이용 가능 여부가 달라집니다. 일부 상품은 만기 선택이 제한될 수 있습니다.
+                ※ 일반적인 장기렌트 기준이며, 신용심사 및 계약 조건에 따라 이용 가능 여부가 달라집니다. 일부 상품은 만기 선택이 제한될 수 있습니다.
               </div>
             </div>
           </div>
@@ -233,7 +232,48 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             </div>
           </div>
 
-          {/* 2. 1년에 주행할 거리 (1만, 1.5만, 2만, 3만, 무제한) */}
+          {/* 2. 보증금 (0%, 10%, 20%, 30%) */}
+          <div className="calc-field-group">
+            <div className="calc-field-header">
+              <span className="calc-field-label">
+                보증금
+                <HelpCircle
+                  size={14}
+                  style={{ cursor: 'pointer', color: '#9ca3af' }}
+                  onClick={() => toggleTooltip('deposit')}
+                />
+              </span>
+              <span className="calc-field-value-preview">
+                {estimateOptions.depositRate === 0
+                  ? '0원'
+                  : `${Math.round(estimateResult.depositAmount / 10000)}만원`}
+              </span>
+            </div>
+
+            {activeTooltip === 'deposit' && (
+              <div style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '8px' }}>
+                보증금은 계약 시 맡기는 금액으로, 월 렌트료를 낮출 수 있습니다. 계약 만기 시 정산 후 돌려받거나 차량 인수금으로 사용할 수 있습니다.
+              </div>
+            )}
+
+            <div className="calc-btn-grid calc-btn-grid-4">
+              {([0, 10, 20, 30] as DepositRate[]).map((rate) => {
+                const isSelected = estimateOptions.depositRate === rate;
+                return (
+                  <button
+                    key={rate}
+                    type="button"
+                    className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
+                    onClick={() => onUpdateOptions({ depositRate: rate })}
+                  >
+                    <span className="calc-opt-main">{rate}%</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 3. 1년에 주행할 거리 (1만, 1.5만, 2만, 3만, 무제한) */}
           <div className="calc-field-group">
             <div className="calc-field-header">
               <span className="calc-field-label">
@@ -281,7 +321,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             </div>
           </div>
 
-          {/* 3. 계약기간 (3년, 4년, 5년) */}
+          {/* 4. 계약기간 (3년, 4년, 5년) */}
           <div className="calc-field-group">
             <div className="calc-field-header">
               <span className="calc-field-label">

@@ -1,5 +1,6 @@
 export type RentalTermYears = 3 | 4 | 5; // 36, 48, 60개월
 export type PrepaymentRate = 0 | 10 | 20 | 30; // 0%, 10%, 20%, 30%
+export type DepositRate = 0 | 10 | 20 | 30; // 0%, 10%, 20%, 30% (연간 6% 할인)
 export type AnnualMileageKm = 10000 | 15000 | 20000 | 30000 | -1; // 1만, 1.5만, 2만, 3만, 무제한(-1)
 export type ProductType = 'rent'; // 신차 장기렌터카 전용
 
@@ -8,6 +9,7 @@ export interface EstimateOptions {
   colorId: string;
   termYears: RentalTermYears;
   prepaymentRate: PrepaymentRate;
+  depositRate: DepositRate;
   mileageKm: AnnualMileageKm;
   productType: ProductType;
   selectedOptions?: string[];
@@ -17,6 +19,7 @@ export interface EstimateResult {
   monthlyPayment: number; // 월 납입금 (원)
   couponDiscountedPayment: number; // 쿠폰 적용시 1개월간 금액 (원)
   prepaymentAmount: number; // 선납금 원화 금액 (원)
+  depositAmount: number; // 보증금 원화 금액 (원)
   termMonths: number; // 24~60개월
   bestAffiliateCount: number; // 비교 금융사 수
   includedBenefits: string[]; // ['보험·세금 포함', '부가세 포함']

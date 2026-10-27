@@ -31,6 +31,7 @@ export const App: React.FC = () => {
     colorId: EV5_COLORS[0].id,
     termYears: 5,         // 최대 5년
     prepaymentRate: 10,   // 최다 10%
+    depositRate: 0,       // 기본 보증금 0%
     mileageKm: 20000,     // 최다 2만km
     productType: 'rent',  // 장기렌트
   });

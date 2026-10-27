@@ -331,6 +331,7 @@ Request Body:
   "options": {
     "termYears": 5,
     "prepaymentRate": 0,
+    "depositRate": 0,
     "mileageKm": 15000,
     "productType": "rent"
   },

@@ -96,7 +96,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               }}
             >
               <div><strong>선택 차량:</strong> {selectedTrim.name} ({selectedColor.nameKo})</div>
-              <div><strong>계약 조건:</strong> {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · {estimateOptions.mileageKm === -1 ? '주행거리 무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`}</div>
+              <div><strong>계약 조건:</strong> {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 보증금 {estimateOptions.depositRate}% · {estimateOptions.mileageKm === -1 ? '주행거리 무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`}</div>
               <div><strong>예상 월 납입금:</strong> <span style={{ color: '#008b74', fontWeight: 800 }}>{formatCurrency(estimateResult.monthlyPayment)}원/월</span></div>
             </div>
             <button
@@ -133,7 +133,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div>
                 <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{selectedTrim.name}</div>
                 <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · {estimateOptions.mileageKm === -1 ? '무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`} · 신차 장기렌트
+                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 보증금 {estimateOptions.depositRate}% · {estimateOptions.mileageKm === -1 ? '무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`} · 신차 장기렌트
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>

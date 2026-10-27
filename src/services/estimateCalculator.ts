@@ -24,7 +24,12 @@ export function calculateEstimate(options: EstimateOptions): EstimateResult {
   // 월 환산 선납 차감액
   const monthlyPrepaymentDeduction = prepaymentAmount / termMonths;
 
-  // 3. 연간 주행거리 조정액
+  // 3. 보증금 원화 금액 계산 및 연간 6% 할인 적용 (월 환산 할인액 = 보증금 * 6% / 12)
+  const depositRate = options.depositRate ?? 0;
+  const depositAmount = Math.round((trim.basePrice * (depositRate / 100)) / 10000) * 10000;
+  const monthlyDepositDiscount = (depositAmount * 0.06) / 12;
+
+  // 4. 연간 주행거리 조정액
   const mileageDeltas: Record<number, number> = {
     10000: -15000,
     15000: 0, // 기준 1.5만km
@@ -34,9 +39,9 @@ export function calculateEstimate(options: EstimateOptions): EstimateResult {
   };
   const mileageDelta = mileageDeltas[options.mileageKm] ?? 0;
 
-  // 4. 기본 월 렌트료 산정 (신차 장기렌트 올인원: 취등록세, 자동차세, 종합보험료 전액 포함)
+  // 5. 기본 월 렌트료 산정 (차량가 기준 월 예상 이용료)
   let adjustedMonthly = trim.baseRentMonthly * termMultiplier;
-  adjustedMonthly = adjustedMonthly - monthlyPrepaymentDeduction + mileageDelta;
+  adjustedMonthly = adjustedMonthly - monthlyPrepaymentDeduction - monthlyDepositDiscount + mileageDelta;
 
   // 100원 단위 절삭 및 최솟값 보정
   const monthlyPayment = Math.max(250000, Math.round(adjustedMonthly / 100) * 100);
@@ -58,6 +63,7 @@ export function calculateEstimate(options: EstimateOptions): EstimateResult {
     monthlyPayment,
     couponDiscountedPayment,
     prepaymentAmount,
+    depositAmount,
     termMonths,
     bestAffiliateCount: 17,
     includedBenefits,
