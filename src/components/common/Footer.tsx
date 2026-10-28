@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
                 <div style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   <p>
                     <strong>1. 개인정보의 수집 및 이용 목적</strong><br />
-                    핏카컴퍼니는 기아 EV5 신차 장기렌트 다이렉트 견적 산출, 최적 금융 플랜 비교 분석, 전문 상담 매니저 배정 및 고객 맞춤형 혜택 안내를 목적으로 개인정보를 수집·이용합니다.
+                    핏카컴퍼니는 기아 EV5 장기렌트 다이렉트 견적 산출, 최적 금융 플랜 비교 분석, 전문 상담 매니저 배정 및 고객 맞춤형 혜택 안내를 목적으로 개인정보를 수집·이용합니다.
                   </p>
                   <p>
                     <strong>2. 수집하는 개인정보 항목</strong><br />

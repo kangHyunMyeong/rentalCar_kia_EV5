@@ -123,7 +123,7 @@ export const App: React.FC = () => {
       {/* 7. FAQ Accordion (Image 4 Matching) */}
       <FaqSection />
 
-      {/* NEW: Final Consultation CTA Section (Cinematic EV5 with kia_ev5_6.jpg) */}
+      {/* NEW: Final Consultation CTA Section (Cinematic EV5 with kia_ev5_6.webp) */}
       <FinalCtaSection
         onOpenConsultation={() => setIsConsultationModalOpen(true)}
         onScrollToCalculator={scrollToCalculator}

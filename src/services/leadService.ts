@@ -68,7 +68,7 @@ const SEED_LEADS: ConsultationLead[] = [
     calculatedMonthly: 592000,
     createdAt: '2026-04-25 18:20:00',
     status: 'QUOTED',
-    memo: '신차 장기렌트 즉시출고 선발주 물량 확인 및 전자세금계산서 발행 희망',
+    memo: 'EV5 장기렌트 즉시출고 선발주 물량 확인 및 전자세금계산서 발행 희망',
   },
 ];
 

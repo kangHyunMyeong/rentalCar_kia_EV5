@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
-import ctaBgImage from '@images/kia_ev5_6.jpg';
+import ctaBgImage from '@images/kia_ev5_6.webp';
 
 interface FinalCtaSectionProps {
   onOpenConsultation: () => void;

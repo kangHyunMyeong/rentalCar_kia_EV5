@@ -1350,7 +1350,7 @@ a {
   font-weight: 600;
 }
 
-/* Product Display (신차 장기렌트 전용) */
+/* Product Display (EV5 장기렌트 전용) */
 .calc-product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2268,6 +2268,101 @@ a {
   color: #111;
 }
 
+/* Modal Vehicle Summary Card */
+.modal-vehicle-summary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modal-vehicle-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-vehicle-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 3px;
+}
+
+.modal-vehicle-specs {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.modal-vehicle-price-box {
+  flex-shrink: 0;
+  text-align: right;
+  min-width: fit-content;
+}
+
+.modal-vehicle-price-label {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+.modal-vehicle-price-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #008b74;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 520px) {
+  .modal-vehicle-summary {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .modal-vehicle-info {
+    width: 100%;
+  }
+
+  .modal-vehicle-specs {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .modal-vehicle-price-box {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+  }
+
+  .modal-vehicle-price-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .modal-vehicle-price-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #008b74;
+  }
+}
+
 .form-group {
   margin-bottom: 18px;
 }
@@ -2469,7 +2564,7 @@ a {
 }
 
 /* ==========================================================================
-   Final Consultation CTA Section (Premium Cinematic EV5 with kia_ev5_6.jpg)
+   Final Consultation CTA Section (Premium Cinematic EV5 with kia_ev5_6.webp)
    ========================================================================== */
 .final-cta-section {
   background-color: #ffffff;

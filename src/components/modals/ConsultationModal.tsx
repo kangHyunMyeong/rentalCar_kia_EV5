@@ -97,7 +97,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             >
               <div><strong>선택 차량:</strong> {selectedTrim.name} ({selectedColor.nameKo})</div>
               <div><strong>계약 조건:</strong> {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 보증금 {estimateOptions.depositRate}% · {estimateOptions.mileageKm === -1 ? '주행거리 무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`}</div>
-              <div><strong>예상 월 납입금:</strong> <span style={{ color: '#008b74', fontWeight: 800 }}>{formatCurrency(estimateResult.monthlyPayment)}원/월</span></div>
+              <div><strong>예상 월 납입금:</strong> <span style={{ color: '#008b74', fontWeight: 800, whiteSpace: 'nowrap' }}>{formatCurrency(estimateResult.monthlyPayment)}원/월</span></div>
             </div>
             <button
               type="button"
@@ -118,27 +118,16 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             </p>
 
             {/* Selected Vehicle Summary Pill */}
-            <div
-              style={{
-                background: '#f8fafc',
-                border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                padding: '12px 16px',
-                marginBottom: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div>
-                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{selectedTrim.name}</div>
-                <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 보증금 {estimateOptions.depositRate}% · {estimateOptions.mileageKm === -1 ? '무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`} · 신차 장기렌트
+            <div className="modal-vehicle-summary">
+              <div className="modal-vehicle-info">
+                <div className="modal-vehicle-name">{selectedTrim.name}</div>
+                <div className="modal-vehicle-specs">
+                  {selectedColor.nameKo} · {estimateOptions.termYears}년 · 선납금 {estimateOptions.prepaymentRate}% · 보증금 {estimateOptions.depositRate}% · {estimateOptions.mileageKm === -1 ? '무제한' : `연 ${estimateOptions.mileageKm === 15000 ? '1.5' : estimateOptions.mileageKm / 10000}만km`} · 장기렌트
                 </div>
               </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.72rem', color: '#94a3b8' }}>예상 월 납입금</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#008b74' }}>
+              <div className="modal-vehicle-price-box">
+                <div className="modal-vehicle-price-label">예상 월 납입금</div>
+                <div className="modal-vehicle-price-val">
                   {formatCurrency(estimateResult.monthlyPayment)}원
                 </div>
               </div>

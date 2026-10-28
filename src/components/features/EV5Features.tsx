@@ -1,11 +1,11 @@
 import { Sparkles } from 'lucide-react';
 
-import ev5Img1 from '@images/kia_ev5_1.jpg';
-import ev5Img2 from '@images/kia_ev5_2.jpg';
-import ev5Img5 from '@images/kia_ev5_5.jpg';
-import ev5Img7 from '@images/kia_ev5_7.jpg';
-import ev5Img8 from '@images/kia_ev5_8.jpg';
-import ev5Img9 from '@images/kia_ev5_9.jpg';
+import ev5Img1 from '@images/kia_ev5_1.webp';
+import ev5Img2 from '@images/kia_ev5_2.webp';
+import ev5Img5 from '@images/kia_ev5_5.webp';
+import ev5Img7 from '@images/kia_ev5_7.webp';
+import ev5Img8 from '@images/kia_ev5_8.webp';
+import ev5Img9 from '@images/kia_ev5_9.webp';
 
 export interface HighlightCardItem {
   id: string;
