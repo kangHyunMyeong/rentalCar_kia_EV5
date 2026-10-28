@@ -10,6 +10,7 @@ import ev5Img9 from '@images/kia_ev5_9.webp';
 export interface HighlightCardItem {
   id: string;
   image: string;
+  imageAlt: string;
   tag: string;
   badge: string;
   title: string;
@@ -22,6 +23,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-1',
       image: ev5Img2,
+      imageAlt: '기아 EV5 전면부 디지털 타이거 페이스 그릴과 스타맵 시그니처 주간주행등(DRL)',
       tag: 'SUV DESIGN',
       badge: '디지털 타이거 페이스',
       title: '강인한 존재감, 세련된 디자인',
@@ -30,6 +32,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-2',
       image: ev5Img9,
+      imageAlt: '기아 EV5 1열 운전석 콕핏 대시보드와 파노라믹 윈드실드 시야',
       tag: 'SPACIOUS INTERIOR',
       badge: '2,750mm 휠베이스',
       title: '함께할수록 여유로운 실내 공간',
@@ -38,6 +41,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-3',
       image: ev5Img7,
+      imageAlt: '기아 EV5 아이보리 실버 외장 측면 실루엣 및 정통 전기 SUV 바디라인',
       tag: 'FULL FLAT SPACE',
       badge: '2열 풀플랫 시트',
       title: '필요한 만큼 자유롭게 넓어지는 공간',
@@ -46,6 +50,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-4',
       image: ev5Img8,
+      imageAlt: '기아 EV5 파노라믹 와이드 디스플레이 서라운드 뷰 3D 주차 모니터 화면',
       tag: 'DIGITAL COCKPIT',
       badge: '파노라믹 와이드 디스플레이',
       title: '한눈에 들어오는 스마트한 운전석',
@@ -54,6 +59,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-5',
       image: ev5Img1,
+      imageAlt: '기아 EV5 전면 휀더 고속 충전구 도어 및 19인치 에어로 다이내믹 알로이 휠',
       tag: 'V2L TECHNOLOGY',
       badge: '실내 V2L · 220V',
       title: '차 안에서도 편리한 전원 활용',
@@ -62,6 +68,7 @@ export const EV5Features: React.FC = () => {
     {
       id: 'highlight-6',
       image: ev5Img5,
+      imageAlt: '기아 EV5 전면 유리 상단 첨단 운전자 보조 시스템(ADAS) 전방 감지 카메라 및 센서 모듈',
       tag: 'SMART SAFETY',
       badge: '첨단 운전자 보조 시스템',
       title: '운전의 부담을 덜어주는 안전 기술',
@@ -90,17 +97,17 @@ export const EV5Features: React.FC = () => {
         {/* 6 Image Cards Grid (PC: 3 columns x 2 rows) */}
         <div className="highlights-cards-grid">
           {cards.map((card) => (
-            <div key={card.id} className="highlight-image-card">
+            <article key={card.id} className="highlight-image-card">
               {/* Background Full-bleed Car Photo */}
-              <div className="highlight-image-wrapper">
+              <figure className="highlight-image-wrapper">
                 <img
                   src={card.image}
-                  alt={card.title}
+                  alt={card.imageAlt || card.title}
                   className="highlight-card-img"
                   loading="lazy"
                 />
                 <div className="highlight-card-gradient" />
-              </div>
+              </figure>
 
               {/* Top Floating Badge */}
               <div className="highlight-card-top-tag">
@@ -113,7 +120,7 @@ export const EV5Features: React.FC = () => {
                 <h3 className="highlight-card-headline">{card.title}</h3>
                 <p className="highlight-card-subtext">{card.desc}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

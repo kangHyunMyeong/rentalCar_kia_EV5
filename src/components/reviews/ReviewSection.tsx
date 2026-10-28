@@ -186,16 +186,16 @@ export const ReviewSection: React.FC = () => {
             className="reviews-slider-track"
           >
             {CLONED_REVIEWS.map((review, idx) => (
-              <div key={`${review.id}-${idx}`} className="review-slide-card">
+              <article key={`${review.id}-${idx}`} className="review-slide-card">
                 {/* Photo of vehicle */}
-                <div className="review-card-media">
+                <figure className="review-card-media">
                   <img
                     src={review.imageUrl}
-                    alt={review.title}
+                    alt={review.imageAlt ? `${review.author}님의 EV5 출고 차량 - ${review.imageAlt}` : `${review.author}님의 EV5 출고 후기: ${review.title}`}
                     className="review-card-img"
                     loading="lazy"
                   />
-                </div>
+                </figure>
 
                 {/* Content Area */}
                 <div className="review-card-content">
@@ -204,7 +204,7 @@ export const ReviewSection: React.FC = () => {
 
                   {/* Customer author & stars info */}
                   <div className="review-card-footer">
-                    <span className="review-card-author">{review.author}</span>
+                    <cite className="review-card-author">{review.author}</cite>
                     <div className="review-card-rating">
                       <Star size={13} fill="#0c0d0e" color="#0c0d0e" />
                       <Star size={13} fill="#0c0d0e" color="#0c0d0e" />
@@ -214,7 +214,7 @@ export const ReviewSection: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

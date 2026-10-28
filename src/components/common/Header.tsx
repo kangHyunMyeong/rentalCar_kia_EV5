@@ -36,13 +36,13 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="container header-container header-inner">
           {/* Brand Logo - Text Type */}
           <div className="brand-wrapper">
-            <a href="#" className="brand-logo-link" title="핏카 - 기아 EV5">
+            <a href="#" className="brand-logo-link" title="핏카 - 기아 EV5" aria-label="핏카컴퍼니 기아 EV5 홈">
               <span className="brand-title">핏카 - 기아 EV5</span>
             </a>
           </div>
 
           {/* Navigation Links - Desktop */}
-          <nav>
+          <nav aria-label="주요 메뉴">
             <ul className="nav-links">
               <li><a href="#hero" className="nav-link active" onClick={(e) => handleNavClick(e, 'hero')}>차량 정보</a></li>
               <li><a href="#calculator" className="nav-link" onClick={(e) => handleNavClick(e, 'calculator')}>실시간 최저가 견적</a></li>
@@ -70,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="btn-mobile-menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -81,6 +82,9 @@ export const Header: React.FC<HeaderProps> = ({
       {mobileMenuOpen && (
         <div
           className="mobile-nav-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="모바일 메뉴"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
@@ -99,23 +103,25 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
             </div>
 
-            <ul className="mobile-nav-list">
-              <li>
-                <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>차량 정보</a>
-              </li>
-              <li>
-                <a href="#calculator" onClick={(e) => handleNavClick(e, 'calculator')}>실시간 최저가 견적</a>
-              </li>
-              <li>
-                <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>EV5 특장점</a>
-              </li>
-              <li>
-                <a href="#reviews" onClick={(e) => handleNavClick(e, 'reviews')}>고객 후기</a>
-              </li>
-              <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')}>자주 묻는 질문</a>
-              </li>
-            </ul>
+            <nav aria-label="모바일 메뉴">
+              <ul className="mobile-nav-list">
+                <li>
+                  <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>차량 정보</a>
+                </li>
+                <li>
+                  <a href="#calculator" onClick={(e) => handleNavClick(e, 'calculator')}>실시간 최저가 견적</a>
+                </li>
+                <li>
+                  <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>EV5 특장점</a>
+                </li>
+                <li>
+                  <a href="#reviews" onClick={(e) => handleNavClick(e, 'reviews')}>고객 후기</a>
+                </li>
+                <li>
+                  <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')}>자주 묻는 질문</a>
+                </li>
+              </ul>
+            </nav>
 
             <div className="mobile-nav-footer">
               <button

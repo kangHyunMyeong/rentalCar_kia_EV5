@@ -23,6 +23,9 @@ export const TrimDetailModal: React.FC<TrimDetailModalProps> = ({
     <div className="modal-overlay" onClick={onClose}>
       <div
         className="modal-container"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="trim-modal-title"
         style={{ maxWidth: '680px' }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -30,7 +33,7 @@ export const TrimDetailModal: React.FC<TrimDetailModalProps> = ({
           <X size={20} />
         </button>
 
-        <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#111', marginBottom: '6px' }}>
+        <h3 id="trim-modal-title" style={{ fontSize: '1.45rem', fontWeight: 800, color: '#111', marginBottom: '6px' }}>
           기아 EV5 공식 트림 및 사양 안내
         </h3>
         <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '24px' }}>
@@ -41,7 +44,7 @@ export const TrimDetailModal: React.FC<TrimDetailModalProps> = ({
           {EV5_TRIMS.map((trim) => {
             const isSelected = trim.id === selectedTrim.id;
             return (
-              <div
+              <article
                 key={trim.id}
                 style={{
                   border: isSelected ? '2px solid #008b74' : '1px solid #e2e8f0',
@@ -135,7 +138,7 @@ export const TrimDetailModal: React.FC<TrimDetailModalProps> = ({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             );
           })}
         </div>

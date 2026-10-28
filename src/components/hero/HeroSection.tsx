@@ -43,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <h1 className="hero-title">
               기아 EV5,<br />
               일상은 더 넓게.<br />
-              렌트는 내 조건대로.
+              장기렌트는 내 조건대로.
             </h1>
 
             <p className="hero-subtitle">
@@ -68,7 +68,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="hero-car-image-container">
               <img
                 src={selectedColor.image}
-                alt={`Kia EV5 ${selectedColor.nameKo}`}
+                alt={selectedColor.imageAlt || `기아 EV5 ${selectedColor.nameKo} (${selectedColor.name}) 외장 컬러 측면 실루엣 디자인`}
                 className={`hero-car-image ${isChanging ? 'changing' : ''}`}
                 loading="eager"
               />
@@ -107,8 +107,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Vehicle Information Strip */}
-        <div className="hero-spec-strip">
-          <div className="spec-strip-item">
+        <ul className="hero-spec-strip" aria-label="기아 EV5 핵심 제원">
+          <li className="spec-strip-item">
             <div className="spec-icon-box">
               <MoveHorizontal size={26} />
             </div>
@@ -116,9 +116,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="spec-strip-value">2,750mm</span>
               <span className="spec-strip-label">여유로운 휠베이스</span>
             </div>
-          </div>
+          </li>
 
-          <div className="spec-strip-item">
+          <li className="spec-strip-item">
             <div className="spec-icon-box">
               <Layers size={26} />
             </div>
@@ -126,9 +126,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="spec-strip-value">풀플랫</span>
               <span className="spec-strip-label">2열 6:4 폴딩 시트</span>
             </div>
-          </div>
+          </li>
 
-          <div className="spec-strip-item">
+          <li className="spec-strip-item">
             <div className="spec-icon-box">
               <Monitor size={26} />
             </div>
@@ -136,9 +136,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="spec-strip-value">12.3인치</span>
               <span className="spec-strip-label">디지털 클러스터</span>
             </div>
-          </div>
+          </li>
 
-          <div className="spec-strip-item">
+          <li className="spec-strip-item">
             <div className="spec-icon-box">
               <Plug size={26} />
             </div>
@@ -146,8 +146,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="spec-strip-value">220V</span>
               <span className="spec-strip-label">실내 V2L 콘센트</span>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
 
       {/* PC ONLY: Vertical Color Swatches Sidebar pinned to the FAR RIGHT EDGE of the screen */}

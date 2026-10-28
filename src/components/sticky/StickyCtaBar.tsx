@@ -39,7 +39,7 @@ export const StickyCtaBar: React.FC<StickyCtaBarProps> = ({
   if (!visible) return null;
 
   return (
-    <div className="sticky-bottom-bar">
+    <aside className="sticky-bottom-bar" aria-label="실시간 견적 빠른 신청 바">
       <div className="sticky-bar-container">
         <div className="sticky-bar-left">
           <div className="sticky-bar-meta">
@@ -64,6 +64,6 @@ export const StickyCtaBar: React.FC<StickyCtaBarProps> = ({
           <ArrowRight size={15} />
         </button>
       </div>
-    </div>
+    </aside>
   );
 };

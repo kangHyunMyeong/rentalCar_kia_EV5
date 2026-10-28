@@ -94,40 +94,43 @@ export const App: React.FC = () => {
         leadCount={leadCount}
       />
 
-      {/* 2. Hero Section (Image 1 Aesthetic + 9 Colors from @images) */}
-      <HeroSection
-        selectedColor={selectedColor}
-        onSelectColor={handleSelectColor}
-        selectedTrim={selectedTrim}
-        onOpenConsultation={() => setIsConsultationModalOpen(true)}
-        onScrollToCalculator={scrollToCalculator}
-      />
+      {/* Main Landmark Content */}
+      <main id="main-content">
+        {/* 2. Hero Section (Image 1 Aesthetic + 9 Colors from @images) */}
+        <HeroSection
+          selectedColor={selectedColor}
+          onSelectColor={handleSelectColor}
+          selectedTrim={selectedTrim}
+          onOpenConsultation={() => setIsConsultationModalOpen(true)}
+          onScrollToCalculator={scrollToCalculator}
+        />
 
-      {/* 3. Real-time Estimate Calculator (Image 2 Matching) */}
-      <EstimateCalculator
-        selectedTrim={selectedTrim}
-        onSelectTrim={handleSelectTrim}
-        selectedColor={selectedColor}
-        estimateOptions={estimateOptions}
-        onUpdateOptions={handleUpdateOptions}
-        estimateResult={estimateResult}
-        onOpenConsultation={() => setIsConsultationModalOpen(true)}
-      />
+        {/* 3. Real-time Estimate Calculator (Image 2 Matching) */}
+        <EstimateCalculator
+          selectedTrim={selectedTrim}
+          onSelectTrim={handleSelectTrim}
+          selectedColor={selectedColor}
+          estimateOptions={estimateOptions}
+          onUpdateOptions={handleUpdateOptions}
+          estimateResult={estimateResult}
+          onOpenConsultation={() => setIsConsultationModalOpen(true)}
+        />
 
-      {/* 4. EV5 Core Highlights & Innovation */}
-      <EV5Features />
+        {/* 4. EV5 Core Highlights & Innovation */}
+        <EV5Features />
 
-      {/* 5. Customer Reviews (Image 3 Matching) */}
-      <ReviewSection />
+        {/* 5. Customer Reviews (Image 3 Matching) */}
+        <ReviewSection />
 
-      {/* 7. FAQ Accordion (Image 4 Matching) */}
-      <FaqSection />
+        {/* 7. FAQ Accordion (Image 4 Matching) */}
+        <FaqSection />
 
-      {/* NEW: Final Consultation CTA Section (Cinematic EV5 with kia_ev5_6.webp) */}
-      <FinalCtaSection
-        onOpenConsultation={() => setIsConsultationModalOpen(true)}
-        onScrollToCalculator={scrollToCalculator}
-      />
+        {/* NEW: Final Consultation CTA Section (Cinematic EV5 with kia_ev5_6.webp) */}
+        <FinalCtaSection
+          onOpenConsultation={() => setIsConsultationModalOpen(true)}
+          onScrollToCalculator={scrollToCalculator}
+        />
+      </main>
 
       {/* 8. Footer */}
       <Footer />

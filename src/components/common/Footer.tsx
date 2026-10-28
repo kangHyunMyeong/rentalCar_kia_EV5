@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
 
         {/* Info & Copyright Row */}
         <div className="footer-info-row">
-          <div className="footer-company-meta">
+          <address className="footer-company-meta">
             <span className="footer-meta-item">
               <span className="footer-meta-label">상호명</span>
               <span className="footer-meta-val">핏카컴퍼니</span>
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
               <span className="footer-meta-label">주소</span>
               <span className="footer-meta-val">인천 서구 파랑로 495 에이스하이테크시티 1동 1004호</span>
             </span>
-          </div>
+          </address>
 
           <div className="footer-copyright">
             © FitCar Company. All rights reserved.

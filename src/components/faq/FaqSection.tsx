@@ -29,23 +29,32 @@ export const FaqSection: React.FC = () => {
                 key={faq.id}
                 className={`faq-item-row ${isOpen ? 'open' : ''}`}
               >
-                <button
-                  type="button"
-                  className="faq-question-btn"
-                  onClick={() => toggleItem(faq.id)}
-                  aria-expanded={isOpen}
-                >
-                  <div className="faq-q-left">
-                    <span className="faq-q-icon">Q</span>
-                    <span className="faq-q-text">{cleanQuestion}</span>
-                  </div>
-                  <ChevronDown
-                    size={20}
-                    className="faq-chevron"
-                  />
-                </button>
+                <h3 className="faq-item-heading">
+                  <button
+                    type="button"
+                    className="faq-question-btn"
+                    onClick={() => toggleItem(faq.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${faq.id}`}
+                    id={`faq-btn-${faq.id}`}
+                  >
+                    <div className="faq-q-left">
+                      <span className="faq-q-icon">Q</span>
+                      <span className="faq-q-text">{cleanQuestion}</span>
+                    </div>
+                    <ChevronDown
+                      size={20}
+                      className="faq-chevron"
+                    />
+                  </button>
+                </h3>
 
-                <div className="faq-answer-pane">
+                <div
+                  id={`faq-answer-${faq.id}`}
+                  role="region"
+                  aria-labelledby={`faq-btn-${faq.id}`}
+                  className="faq-answer-pane"
+                >
                   <p className="faq-answer-text">{faq.answer}</p>
                 </div>
               </div>

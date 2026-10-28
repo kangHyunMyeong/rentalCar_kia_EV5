@@ -7,6 +7,7 @@ export interface Review {
   carModel: string; // 예: "EV5 롱레인지", "EV5 에어"
   date: string; // "2026.04.12"
   imageUrl?: string; // 출고 차량 썸네일 이미지
+  imageAlt?: string; // 출고 차량 이미지 세부 대체 텍스트(ALT)
   badge?: string; // "출고인증", "베스트"
   buddyReply?: {
     buddyName: string; // 예: "이혜연 버디", "박준수 버디"

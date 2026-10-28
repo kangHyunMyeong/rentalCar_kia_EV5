@@ -61,12 +61,12 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
           <div className="calc-header-row">
             <img
               src={selectedColor.image}
-              alt={selectedTrim.name}
+              alt={`기아 EV5 ${selectedTrim.name} (${selectedColor.nameKo}) 예상 견적 차량 외관`}
               className="calc-header-thumb"
             />
 
             <div className="calc-car-title-group">
-              <h3 className="calc-model-name">EV5</h3>
+              <div className="calc-model-name">EV5</div>
             </div>
           </div>
 
@@ -100,6 +100,9 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
               onClick={() => setIsTrimDropdownOpen(!isTrimDropdownOpen)}
               role="button"
               tabIndex={0}
+              aria-haspopup="listbox"
+              aria-expanded={isTrimDropdownOpen}
+              aria-label="EV5 트림 선택 드롭다운"
             >
               <div className="calc-trim-left">
                 <span className="calc-trim-tag">트림</span>
@@ -121,6 +124,8 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
             {/* Dropdown Menu */}
             {isTrimDropdownOpen && (
               <div
+                role="listbox"
+                aria-label="EV5 트림 목록"
                 style={{
                   position: 'absolute',
                   top: 'calc(100% - 16px)',
@@ -140,6 +145,8 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   return (
                     <div
                       key={trim.id}
+                      role="option"
+                      aria-selected={isSelected}
                       onClick={() => {
                         onSelectTrim(trim);
                         onUpdateOptions({ trimId: trim.id });
@@ -221,6 +228,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   <button
                     key={rate}
                     type="button"
+                    aria-pressed={isSelected}
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
                     onClick={() => onUpdateOptions({ prepaymentRate: rate as PrepaymentRate })}
                   >
@@ -263,6 +271,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   <button
                     key={rate}
                     type="button"
+                    aria-pressed={isSelected}
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
                     onClick={() => onUpdateOptions({ depositRate: rate })}
                   >
@@ -310,6 +319,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   <button
                     key={mileage}
                     type="button"
+                    aria-pressed={isSelected}
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
                     onClick={() => onUpdateOptions({ mileageKm: mileage as AnnualMileageKm })}
                   >
@@ -351,6 +361,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({
                   <button
                     key={term}
                     type="button"
+                    aria-pressed={isSelected}
                     className={`calc-option-btn ${isSelected ? 'selected' : ''}`}
                     onClick={() => onUpdateOptions({ termYears: term as RentalTermYears })}
                   >

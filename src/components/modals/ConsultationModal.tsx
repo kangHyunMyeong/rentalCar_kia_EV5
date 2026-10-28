@@ -69,7 +69,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal-container"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consultation-modal-title"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button type="button" className="modal-close-btn" onClick={onClose} aria-label="닫기">
           <X size={20} />
         </button>
@@ -77,7 +83,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
         {isSuccess ? (
           <div style={{ textAlign: 'center', padding: '24px 0' }}>
             <CheckCircle size={60} color="#008b74" style={{ margin: '0 auto 16px' }} />
-            <h3 style={{ fontSize: '1.45rem', fontWeight: 800, marginBottom: '8px' }}>
+            <h3 id="consultation-modal-title" style={{ fontSize: '1.45rem', fontWeight: 800, marginBottom: '8px' }}>
               견적 분석 신청이 완료되었습니다!
             </h3>
             <p style={{ color: '#4b5563', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
@@ -110,7 +116,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
         ) : (
           <div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#111', marginBottom: '6px', paddingRight: '36px' }}>
+            <h3 id="consultation-modal-title" style={{ fontSize: '1.4rem', fontWeight: 800, color: '#111', marginBottom: '6px', paddingRight: '36px' }}>
               EV5 정밀 견적 분석 받아보기
             </h3>
             <p style={{ fontSize: '0.88rem', color: '#6b7280', marginBottom: '20px' }}>
@@ -135,32 +141,37 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label className="form-label">이름 / 담당자명</label>
+                <label className="form-label" htmlFor="lead-name">이름 / 담당자명</label>
                 <input
+                  id="lead-name"
                   type="text"
                   className="form-input"
                   placeholder="예: 홍길동"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoComplete="name"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">연락처</label>
+                <label className="form-label" htmlFor="lead-phone">연락처</label>
                 <input
+                  id="lead-phone"
                   type="tel"
                   className="form-input"
                   placeholder="예: 010-1234-5678"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">추가 요청사항 (선택)</label>
+                <label className="form-label" htmlFor="lead-memo">추가 요청사항 (선택)</label>
                 <textarea
+                  id="lead-memo"
                   className="form-input"
                   rows={2}
                   placeholder="예: 빌트인캠2 옵션 추가 희망, 스노우 화이트 즉시출고 가능 여부 등"

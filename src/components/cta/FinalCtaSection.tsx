@@ -17,6 +17,8 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({
         <div
           className="final-cta-panel"
           style={{ backgroundImage: `url(${ctaBgImage})` }}
+          role="img"
+          aria-label="맑은 하늘 아래 야외 광장에 정차된 기아 EV5 세 가지 외장 컬러 파노라마 배경"
         >
           {/* Gradient Overlay for Text Readability & Cinematic Vehicle Reveal */}
           <div className="final-cta-overlay" />

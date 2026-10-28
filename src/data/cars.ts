@@ -7,6 +7,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '스노우 화이트 펄',
     hex: '#F4F5F7',
     image: '/images/white_pearl.webp',
+    imageAlt: '기아 EV5 스노우 화이트 펄 유광 외장 컬러 측면 실루엣 디자인',
     isPopular: true,
     type: 'glossy',
     priceDelta: 80000,
@@ -17,6 +18,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '그래비티 그레이',
     hex: '#52565C',
     image: '/images/gravity_gray.webp',
+    imageAlt: '기아 EV5 그래비티 그레이 유광 외장 컬러 측면 실루엣 디자인',
     isPopular: true,
     type: 'glossy',
   },
@@ -26,6 +28,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '오로라 블랙 펄',
     hex: '#1A1B1E',
     image: '/images/black.webp',
+    imageAlt: '기아 EV5 오로라 블랙 펄 유광 외장 컬러 측면 실루엣 디자인',
     isPopular: true,
     type: 'glossy',
   },
@@ -35,6 +38,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '아이보리 실버',
     hex: '#CBCAC4',
     image: '/images/ivory_silver.webp',
+    imageAlt: '기아 EV5 아이보리 실버 유광 외장 컬러 측면 실루엣 디자인',
     type: 'glossy',
   },
   {
@@ -43,6 +47,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '아이스버그 그린',
     hex: '#5B6C64',
     image: '/images/green.webp',
+    imageAlt: '기아 EV5 아이스버그 그린 유광 외장 컬러 측면 실루엣 디자인',
     type: 'glossy',
   },
   {
@@ -51,6 +56,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '매트 포레스트 그린',
     hex: '#3D4942',
     image: '/images/mat_green.webp',
+    imageAlt: '기아 EV5 매트 포레스트 그린 무광 외장 컬러 측면 실루엣 디자인',
     type: 'matte',
     priceDelta: 300000,
   },
@@ -60,6 +66,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '다크 오션 블루',
     hex: '#1D2D42',
     image: '/images/darkocean_blue.webp',
+    imageAlt: '기아 EV5 다크 오션 블루 유광 외장 컬러 측면 실루엣 디자인',
     type: 'glossy',
   },
   {
@@ -68,6 +75,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '프로스트 블루',
     hex: '#7F9CB5',
     image: '/images/prost_blue.webp',
+    imageAlt: '기아 EV5 프로스트 블루 유광 외장 컬러 측면 실루엣 디자인',
     type: 'glossy',
   },
   {
@@ -76,6 +84,7 @@ export const EV5_COLORS: CarColor[] = [
     nameKo: '마그마 레드',
     hex: '#93262A',
     image: '/images/magma_red.webp',
+    imageAlt: '기아 EV5 마그마 레드 유광 외장 컬러 측면 실루엣 디자인',
     type: 'glossy',
   },
 ];

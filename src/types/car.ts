@@ -4,6 +4,7 @@ export interface CarColor {
   nameKo: string;
   hex: string;
   image: string;
+  imageAlt?: string;
   isPopular?: boolean;
   type: 'glossy' | 'matte';
   priceDelta?: number;

@@ -33,6 +33,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 어스',
     date: '2026.04.19',
     imageUrl: revImg1,
+    imageAlt: '지하 주차장에 주차된 스노우 화이트 펄 기아 EV5 전측면 출고 차량',
   },
   {
     id: 'rev-2',
@@ -43,6 +44,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 에어',
     date: '2026.04.18',
     imageUrl: revImg2,
+    imageAlt: '신차 보호 비닐 테이프가 부착된 상태로 운전석 도어를 연 아이보리 실버 기아 EV5 출고 차량',
   },
   {
     id: 'rev-3',
@@ -53,6 +55,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 GT-Line',
     date: '2026.04.17',
     imageUrl: revImg3,
+    imageAlt: '스티어링 휠과 시트에 신차 보호 비닐이 씌워진 기아 EV5 베이지 인테리어 1열 운전석 실내',
   },
   {
     id: 'rev-4',
@@ -63,6 +66,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 어스',
     date: '2026.04.16',
     imageUrl: revImg4,
+    imageAlt: '야외 주차장에 정면으로 주차된 그래비티 그레이 기아 EV5 전면 디자인',
   },
   {
     id: 'rev-5',
@@ -73,6 +77,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 에어',
     date: '2026.04.15',
     imageUrl: revImg5,
+    imageAlt: '햇살 아래 야외 탁송장에서 인도된 스노우 화이트 펄 기아 EV5 전측면',
   },
   {
     id: 'rev-6',
@@ -83,6 +88,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 어스',
     date: '2026.04.14',
     imageUrl: revImg6,
+    imageAlt: '전기차 전용 주차구역에 주차된 다크 오션 블루 기아 EV5 출고 차량',
   },
   {
     id: 'rev-7',
@@ -93,6 +99,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 GT-Line',
     date: '2026.04.13',
     imageUrl: revImg7,
+    imageAlt: '꽃과 자연 풍경을 배경으로 야외에 정차된 아이스버그 그린 기아 EV5 출고 차량',
   },
   {
     id: 'rev-8',
@@ -103,6 +110,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 GT-Line',
     date: '2026.04.12',
     imageUrl: revImg8,
+    imageAlt: '도심 도로변에 주차된 오로라 블랙 펄 기아 EV5 전면부와 유려한 보닛 광택',
   },
   {
     id: 'rev-9',
@@ -113,6 +121,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 에어',
     date: '2026.04.11',
     imageUrl: revImg9,
+    imageAlt: '도심 공원 계단과 가로수길을 배경으로 정차된 화이트 기아 EV5 측면 실루엣',
   },
   {
     id: 'rev-10',
@@ -123,6 +132,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 어스',
     date: '2026.04.10',
     imageUrl: revImg10,
+    imageAlt: '아파트 단지 지상 주차장에 깔끔하게 주차된 아이보리 실버 기아 EV5 출고 차량',
   },
   {
     id: 'rev-11',
@@ -133,6 +143,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 어스',
     date: '2026.04.09',
     imageUrl: revImg11,
+    imageAlt: '석축 옹벽 앞 출고 탁송 상태의 오로라 블랙 펄 기아 EV5 전측면',
   },
   {
     id: 'rev-12',
@@ -143,6 +154,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 GT-Line',
     date: '2026.04.08',
     imageUrl: revImg12,
+    imageAlt: '자갈 바닥 야외 인도장에서 확인한 그래비티 그레이 기아 EV5 측면 전체 실루엣',
   },
   {
     id: 'rev-13',
@@ -153,6 +165,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 GT-Line',
     date: '2026.04.07',
     imageUrl: revImg13,
+    imageAlt: '도심 골목 도로에서 촬영된 오로라 블랙 펄 기아 EV5 전면부와 보닛 반사 디테일',
   },
   {
     id: 'rev-14',
@@ -163,6 +176,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 에어',
     date: '2026.04.06',
     imageUrl: revImg14,
+    imageAlt: '실내 출고 검수장 조명 아래 전시된 스노우 화이트 펄 기아 EV5 전측면',
   },
   {
     id: 'rev-15',
@@ -173,6 +187,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 에어',
     date: '2026.04.05',
     imageUrl: revImg15,
+    imageAlt: '야간 아파트 단지 주차장에서 촬영된 은은한 조명의 아이보리 실버 기아 EV5 출고 차량',
   },
   {
     id: 'rev-16',
@@ -183,6 +198,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 어스',
     date: '2026.04.04',
     imageUrl: revImg16,
+    imageAlt: '블랙 가죽 전동 시트와 스티어링 휠에 신차 비닐이 부착된 기아 EV5 운전석 실내 공간',
   },
   {
     id: 'rev-17',
@@ -193,6 +209,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 GT-Line',
     date: '2026.04.03',
     imageUrl: revImg17,
+    imageAlt: '지하 주차장에서 스타맵 시그니처 리어 LED 테일램프가 점등된 기아 EV5 후측면',
   },
   {
     id: 'rev-18',
@@ -203,6 +220,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 어스',
     date: '2026.04.02',
     imageUrl: revImg18,
+    imageAlt: '야외 탁송장에서 인도된 기아 EV5 후면부 테일게이트와 EV5 레터링 엠블럼',
   },
   {
     id: 'rev-19',
@@ -213,6 +231,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 에어',
     date: '2026.04.01',
     imageUrl: revImg19,
+    imageAlt: '지하 주차장 조명 아래 또렷한 존재감을 드러내는 스노우 화이트 펄 기아 EV5 전면부',
   },
   {
     id: 'rev-20',
@@ -223,6 +242,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 GT-Line',
     date: '2026.03.30',
     imageUrl: revImg20,
+    imageAlt: '신차 틴팅 및 디테일링 샵 실내 부스에 입고된 스노우 화이트 펄 기아 EV5 전측면',
   },
   {
     id: 'rev-21',
@@ -233,6 +253,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 어스',
     date: '2026.03.28',
     imageUrl: revImg21,
+    imageAlt: '파노라믹 커브드 디스플레이와 신차 보호 비닐이 적용된 기아 EV5 운전석 콕핏 대시보드',
   },
   {
     id: 'rev-22',
@@ -243,6 +264,7 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 롱레인지 GT-Line',
     date: '2026.03.26',
     imageUrl: revImg22,
+    imageAlt: '자연 속 자갈 캠핑장에 정차된 스노우 화이트 펄 기아 EV5 측면 바디라인',
   },
   {
     id: 'rev-23',
@@ -253,5 +275,6 @@ export const REVIEWS: Review[] = [
     carModel: 'EV5 스탠다드 에어',
     date: '2026.03.24',
     imageUrl: revImg23,
+    imageAlt: '한적한 교외 도로에서 촬영된 스노우 화이트 펄 기아 EV5 정면 디지털 타이거 페이스',
   },
 ];
