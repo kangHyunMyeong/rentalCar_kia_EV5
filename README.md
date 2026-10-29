@@ -334,7 +334,7 @@ npm run preview
 
 ### 🚀 10. Canonical URL 및 SNS 메타데이터 통합 최적화
 - **Canonical 대표 URL 단일화**:
-  - 공식 대표 도메인인 `https://www.ev5.co.kr/`을 기준으로 `<link rel="canonical">`, `og:url`, JSON-LD `@id` 및 `url`을 단일 HTTPS 엔드포인트로 100% 일치화.
+  - 공식 대표 도메인인 `https://ev5.co.kr/`을 기준으로 `<link rel="canonical">`, `og:url`, JSON-LD `@id` 및 `url`을 단일 HTTPS 엔드포인트로 100% 일치화.
 - **주요 SNS 및 메신저 링크 공유 호환성 확보**:
   - **카카오톡 & 페이스북**: 표준 `og:title`, `og:description`, `og:image`, `og:url`을 추출하여 1200×630px 고해상도 리치 프리뷰 카드 렌더링.
   - **네이버 블로그/카페**: OG 크롤러 접근 시 타이틀, 디스크립션, 대표 썸네일 완벽 호환.
