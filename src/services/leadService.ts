@@ -1,5 +1,8 @@
-import { ConsultationLead } from '../types/estimate';
+import { ConsultationLead, PublicLeadPayload } from '../types/estimate';
 import { AdminDashboardStats, AdminLeadFilter } from '../types/admin';
+
+export const MULTI_LANDING_SITE_ID = '5287101f-0077-4a01-afe0-0d36dbca2b88';
+export const PUBLIC_LEADS_API = 'https://landing-car-admin.vercel.app/api/public/leads';
 
 const STORAGE_KEY = 'kia_ev5_consultation_leads';
 
@@ -73,6 +76,57 @@ const SEED_LEADS: ConsultationLead[] = [
 ];
 
 export class LeadService {
+  /**
+   * Multi Landing Admin 고객 DB 신규 리드 접수 (UTF-8 JSON POST)
+   * - Endpoint: POST https://landing-car-admin.vercel.app/api/public/leads
+   * - Header: Content-Type: application/json; charset=utf-8
+   */
+  public static async submitPublicLead(payload: PublicLeadPayload): Promise<{ ok: boolean; data?: any }> {
+    const send = async () => {
+      return await fetch(PUBLIC_LEADS_API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(payload),
+      });
+    };
+
+    let response = await send();
+
+    // 서버가 ENCODING_ERROR를 반환하면 UTF-8 JSON으로 재전송
+    if (!response.ok) {
+      try {
+        const errorJson = await response.clone().json();
+        if (
+          errorJson?.error?.code === 'ENCODING_ERROR' ||
+          errorJson?.code === 'ENCODING_ERROR'
+        ) {
+          response = await send();
+        }
+      } catch {
+        // clone().json() 실패 시 무시
+      }
+    }
+
+    let resultData: any = null;
+    try {
+      resultData = await response.json();
+    } catch {
+      // json 파싱 실패 무시
+    }
+
+    if (!response.ok || (resultData && resultData.ok === false)) {
+      const errorMessage =
+        resultData?.error?.message ||
+        resultData?.message ||
+        `문의 접수에 실패했습니다. (상태 코드: ${response.status})`;
+      throw new Error(errorMessage);
+    }
+
+    return resultData;
+  }
+
   /**
    * 로컬 스토리지에서 리드 목록 로드 (추후 백엔드 API 연동 시 fetch/axios로 교체 가능)
    */

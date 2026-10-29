@@ -41,3 +41,37 @@ export interface ConsultationLead {
   status: 'PENDING' | 'CONTACTED' | 'QUOTED' | 'DELIVERED';
   memo?: string;
 }
+
+/**
+ * Multi Landing Admin 고객 DB 연동 스키마
+ */
+export interface LeadSelectionItem {
+  key: string;
+  label: string;
+  value: string;
+}
+
+export interface LeadContext {
+  device: 'mobile' | 'desktop';
+  path: string;
+  url: string;
+  referrer: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  [key: string]: string | undefined;
+}
+
+export interface PublicLeadPayload {
+  site_id: string;
+  name: string;
+  phone: string;
+  email?: string;
+  message?: string;
+  payload: {
+    selections: LeadSelectionItem[];
+    context: LeadContext;
+  };
+}
