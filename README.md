@@ -348,8 +348,9 @@ npm run preview
 - **Schema.org 표준 JSON-LD 구조화 데이터 적용**:
   - `@graph` 복합 구조를 활용하여 `Organization` (핏카컴퍼니), `WebPage` (기아 EV5 장기렌트 가격 견적 랜딩페이지), `Service` (자동차 장기렌트 맞춤 견적 서비스) 간 상호 참조 관계 수립.
   - 구글 검색 가이드라인을 엄격히 준수하여 비공식 상품 판매 가격이나 임의의 리뷰 평점(`AggregateRating`) 생성 없이 안전하고 공신력 있는 시맨틱 데이터 구조 확립.
-- **robots.txt / sitemap.xml 작업 보류 준수**:
-  - 공식 도메인 확정 전까지 검색엔진 차단 태그 없이 대기 상태를 유지하며 임의의 크롤링 차단 설정 방지.
+- **robots.txt / sitemap.xml 검색엔진 최적화 표준 탑재**:
+  - `public/robots.txt`: 모든 검색로봇(`User-agent: *`)의 정상 수집(`Allow: /`)을 허용하고 `Sitemap: https://www.ev5.co.kr/sitemap.xml`을 지정하여 구글 및 네이버 크롤러의 전체 리소스 색인 보장.
+  - `public/sitemap.xml`: UTF-8 XML 표준 규격 준수, 단일 랜딩페이지 공식 대표 도메인(`https://www.ev5.co.kr/`) 단독 등록(내부 앵커 `#` 배제).
 
 
 
